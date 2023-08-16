@@ -9,7 +9,7 @@ def connect_db(database):
     passwd = 'postgres'
     hostname = 'localhost'
 
-    conn_string = f'postgresql://{user}:{passwd}@{hostname}:5432/{database}'
+    conn_string = f'postgresql://{user}:{passwd}@{hostname}:5433/{database}'
 
     db = create_engine(conn_string)
     conn = db.connect()
@@ -18,7 +18,7 @@ def connect_db(database):
 
 def most_subscribed(sql):
     # connect to raw database
-    conn = connect_db('youtube')
+    conn = connect_db('postgres')
 
     # read sql table
     data = pd.read_sql(sql, con=conn)

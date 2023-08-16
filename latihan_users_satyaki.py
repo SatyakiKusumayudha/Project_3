@@ -23,4 +23,4 @@ def load(file, table_name):
     # conn = psycopg2.connect(conn_string)
 
 if __name__ == '__main__':
-    load('D:\VSCode\Project3\python-postgresql/global_youtube_stat.csv', 'global_youtube_stat')
+    load('D:\VSCode\Project3\python-postgresql/global_youtube_stat.csv', 'latihan_users_satyaki')

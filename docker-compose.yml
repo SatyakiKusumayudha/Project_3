@@ -1,16 +1,17 @@
 version: '3.8'
 services:
   db:
-    image: postgres:14.1-alpine
+    image: postgres:15
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dwh
     ports:
-      - '5432:5432'
+      - '5433:5432'
     volumes:
-      - db:/var/lib/postgresql/data
-      - ./global_youtube_stat.csv:/data/global_youtube_stat.csv
+      - python-postgresql_db:/var/lib/postgresql/data
 volumes:
-  db:
-    driver: local
+    python-postgresql_db: # docker volume create postgres_data
+      external: true
